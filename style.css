@@ -26,11 +26,10 @@ main {
   padding: 10px;
   border-radius: 10px;
   width: 100%;
-  max-width: 300px;
-  min-height: 200px;
+  max-width: 650px;
+  min-height: 400px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-content: center;
 }
 
 .content {

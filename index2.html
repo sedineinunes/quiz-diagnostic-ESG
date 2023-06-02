@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz de Múltipla Escolha</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .quiz-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .options-container {
+      margin-bottom: 20px;
+    }
+
+    .option {
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .result {
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Quiz de Múltipla Escolha</h1>
+    <p id="pergunta"></p>
+    <div class="options-container" id="opcoes"></div>
+    <button id="proximo-btn">Próxima Pergunta</button>
+    <p class="result" id="resultado"></p>
+  </div>
+
+  <script>
+    // Perguntas
+    const perguntas = [
+      {
+        pergunta: "Qual é a capital da França?",
+        opcoes: ["Paris", "Londres", "Berlim", "Roma"],
+        resposta: 0
+      },
+      {
+        pergunta: "Quem pintou a Mona Lisa?",
+        opcoes: ["Michelangelo", "Pablo Picasso", "Leonardo da Vinci", "Vincent van Gogh"],
+        resposta: 2
+      },
+      {
+        pergunta: "Qual é o maior planeta do sistema solar?",
+        opcoes: ["Júpiter", "Saturno", "Terra", "Vênus"],
+        resposta: 0
+      }
+    ];
+
+    let perguntaAtual = 0;
+    let pontuacao = 0;
+
+    const perguntaElement = document.getElementById("pergunta");
+    const opcoesElement = document.getElementById("opcoes");
+    const proximoBtn = document.getElementById("proximo-btn");
+    const resultadoElement = document.getElementById("resultado");
+
+    function carregarPergunta() {
+      const pergunta = perguntas[perguntaAtual];
+      perguntaElement.textContent = pergunta.pergunta;
+
+      opcoesElement.innerHTML = "";
+
+      for (let i = 0; i < pergunta.opcoes.length; i++) {
+        const option = document.createElement("div");
+        option.className = "option";
+        option.innerHTML = `<input type="radio" name="resposta" value="${i}" id="opcao-${i}">
+                            <label for="opcao-${i}">${pergunta.opcoes[i]}</label>`;
+        opcoesElement.appendChild(option);
+      }
+    }
+
+    function verificarResposta() {
+      const resposta = document.querySelector('input[name="resposta"]:checked');
+
+      if (resposta) {
+        const respostaIndex = parseInt(resposta.value);
+
+        if (respostaIndex === perguntas[perguntaAtual].resposta) {
+          pontuacao += 10;
+        }
+
+        perguntaAtual++;
+        resposta.checked = false;
+
+        if (perguntaAtual < perguntas.length) {
+          carregarPergunta();
+        } else {
+          mostrarResultado();
+        }
+      }
+    }
+
+    function mostrarResultado() {
+      perguntaElement.style.display = "none";
+      opcoesElement.style.display = "none";
+      proximoBtn.style.display = "none";
+      resultadoElement.textContent = `Sua pontuação total é: ${pontuacao}`;
+      resultadoElement.style.display = "block";
+    }
+
+    carregarPergunta();
+
+    proximoBtn.addEventListener("click", verificarResposta);
+  </script>
+</body>
+</html>

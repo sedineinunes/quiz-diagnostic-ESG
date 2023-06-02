@@ -1,34 +1,42 @@
 export default [
   {
-    question: "Quanto é 1 + 2?",
+    question: "A maioria dos colaboradores nível operacional são alfabetizados?", categoria: "primeira",
     answers: [
-      { option: "3", correct: true },
-      { option: "2", correct: false },
-      { option: "4", correct: false },
+      { option: "Analfabetos funcionais - sabem ler e escrever mas não interpretam bem.", value: 2 },
+      { option: "A maioria sabe ler e interpretar.", value: 3 },
+      { option: "Não tenho certeza dessa informação.", value: 5 },
+      { option: "A empresa dá acesso à Educação de Jovens e Adultos (EJA) na fazenda.", value: 8 },
+      { option: "A empresa dá acesso à Educação de Jovens e Adultos (EJA) na vila ou cidade mais próxima.", value: 6},
     ],
   },
   {
-    question: "Quanto é 5 x 2?",
+    question: "111111", categoria: "primeira",
     answers: [
-      { option: "9", correct: false },
-      { option: "10", correct: true },
-      { option: "11", correct: false },
+      { option: "Analfabetos funcionais - sabem ler e escrever mas não interpretam bem.", value: 2 },
+      { option: "A maioria sabe ler e interpretar.", value: 3 },
+      { option: "Não tenho certeza dessa informação.", value: 5 },
+      { option: "A empresa dá acesso à Educação de Jovens e Adultos (EJA) na fazenda.", value: 8 },
+      { option: "A empresa dá acesso à Educação de Jovens e Adultos (EJA) na vila ou cidade mais próxima.", value: 6},
     ],
   },
   {
-    question: "Quanto é 10 x 8?",
+    question: "2222", categoria: "primeira",
     answers: [
-      { option: "800", correct: false },
-      { option: "90", correct: false },
-      { option: "80", correct: true },
+      { option: "Analfabetos funcionais - sabem ler e escrever mas não interpretam bem.", value: 2 },
+      { option: "A maioria sabe ler e interpretar.", value: 3 },
+      { option: "Não tenho certeza dessa informação.", value: 5 },
+      { option: "A empresa dá acesso à Educação de Jovens e Adultos (EJA) na fazenda.", value: 8 },
+      { option: "A empresa dá acesso à Educação de Jovens e Adultos (EJA) na vila ou cidade mais próxima.", value: 6},
     ],
   },
   {
-    question: "Quanto é 7 x 7?",
+    question: "Os colaboradores conhecem os objetivos organizacionais( missão, visão e valores)?", categoria: 'segunda' ,
     answers: [
-      { option: "70", correct: false },
-      { option: "56", correct: false },
-      { option: "49", correct: true },
+      { option: "Minha empresa ainda não tem os objetivos organizacionais traçados 0", value: 2 },
+      { option: "SIM, a maioria dos colaboradores sabem falar os objetivos organizacionais com as próprias palavras. 4", value: 4 },
+      { option: "Apenas a liderança sabe falar os objetivos organizacionais com as próprias palavras. 2", correct: false },
+      { option: "Poucos colaboradores sabem falar os objetivos organizacionais com as próprias palavras.1", correct: false },
+      { option: "NÃO, quase ninguém conhece os objetivos organizacionais. 0 ", correct: false },
     ],
   },
 ];

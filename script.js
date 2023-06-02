@@ -10,6 +10,8 @@ import questions from "./questions.js";
 
 let currentIndex = 0;
 let questionsCorrect = 0;
+let valorPrimeira = 0;
+let valor = 0;
 
 btnRestart.onclick = () => {
   content.style.display = "flex";
@@ -17,12 +19,20 @@ btnRestart.onclick = () => {
 
   currentIndex = 0;
   questionsCorrect = 0;
+ 
   loadQuestion();
 };
 
 function nextQuestion(e) {
-  if (e.target.getAttribute("data-correct") === "true") {
-    questionsCorrect++;
+
+  console.log(e.target)
+
+  if (e.target.getAttribute("categoria") === "primeira") {
+   valor = parseInt(e.target.getAttribute("valor"))
+
+   valorPrimeira = valorPrimeira + valor;
+
+    console.log(valorPrimeira)
   }
 
   if (currentIndex < questions.length - 1) {
@@ -49,7 +59,7 @@ function loadQuestion() {
     const div = document.createElement("div");
 
     div.innerHTML = `
-    <button class="answer" data-correct="${answer.correct}">
+    <button class="answer" data-correct="${answer.correct}" valor="${answer.value}" categoria="${item.categoria}">
       ${answer.option}
     </button>
     `;
